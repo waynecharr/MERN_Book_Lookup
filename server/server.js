@@ -1,36 +1,45 @@
 const express = require('express');
+const { ApolloServer } = require('apollo-server-express');
+const { authMiddleware } = require('./utils/auth')
 const path = require('path');
 const db = require('./config/connection');
 const routes = require('./routes');
 
+const typeDefs = require('./schemas/typeDefs');
+const resolvers = require('./schemas/resolvers');
+
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3033;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Implements the Apollo Server and applies it to the Express server as Middleware
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: ({ req }) => {
-    // Add your authentication logic here if needed
-    // For example, you can extract user information from req.headers and pass it to the context
-    const user = req.user || null;
-    return { user };
-  },
-});
+const startServer = async () => {
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    context: authMiddleware,
+  });
 
-// Apply Apollo Server as middleware to Express
-server.applyMiddleware({ app, path: '/graphql' });
+  await server.start();
 
-// if we're in production, serve client/build as static assets
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-}
+  // Apply Apollo Server as middleware to Express
+  server.applyMiddleware({ app, path: '/graphql' });
 
-app.use(routes);
+  // If we're in production, serve client/build as static assets
+  if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+  }
 
-db.once('open', () => {
-  app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
+  app.use(routes);
+
+  db.once('open', () => {
+    app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
+  });
+};
+
+// Call the async function to start the server
+startServer().catch((error) => {
+  console.error('Error starting the server:', error);
 });
