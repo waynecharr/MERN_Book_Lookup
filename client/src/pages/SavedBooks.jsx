@@ -15,7 +15,7 @@ import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 
 import { useMutation } from '@apollo/client';
-import { REMOVE_BOOK } from '..utils/mutations';
+import { REMOVE_BOOK } from '../utils/mutations';
 
 const SavedBooks = () => {
   //executes the GET_ME query
