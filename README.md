@@ -13,15 +13,12 @@ This an application utilizing MERN that allows users to look up a book via googl
 
 # Installation 
 
- This program can be via github at the following link: https://github.com/waynecharr/E_commerce_Back_End
-
+This program can be via github at the following link: https://github.com/waynecharr/MERN_Book_Lookup
 
 # Contributing
 
-- Worked with tutor Katie Redford. She helped me get started with the project. 
-- Mostly used this past week's (module 13) in-class mini-project as an example of how to run the data and set up the routes
-- for help with sequilize validation: https://sequelize.org/docs/v6/core-concepts/validations-and-constraints/
-
+- Worked with two tutors this week Faran Navaza and Sangeetha Kaliaperu. Additionally, I worked my instructor Nicole Thomas to get the project to deploy. 
+- Referred to the MERN in class assignment modules for most of the graphQL related work
 
 # Instructions
 
