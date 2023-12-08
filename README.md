@@ -10,6 +10,7 @@ This an application utilizing MERN that allows users to look up a book via googl
 - [Contributing](#contributing)
 - [Instructions](#instructions)
 - [Deployment](#deployment)
+- [Images](#images)
 
 # Installation 
 
@@ -24,9 +25,7 @@ This program can be via github at the following link: https://github.com/waynech
 
 In order to run the assignment you will need to install the necessary json packages. 
 
-- navigate to the client folder than run ```npm install```
 - navigate to the server folder than run ```npm install```
-- navigate to the highest folder than run ```npm install```
 
 Once all the packages are install locally, you should be able to run the program at using ```npm run develop```
 
@@ -34,3 +33,7 @@ Once all the packages are install locally, you should be able to run the program
 
 Deployment link: https://stark-spire-67422-7ca23f775fed.herokuapp.com/
 
+# Images
+
+<img src=/images/login.PNG>
+<img src=/images/lookup.PNG>
