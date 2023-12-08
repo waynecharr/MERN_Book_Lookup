@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
@@ -32,16 +32,8 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <>
-          <Navbar />
-          <Routes>
-            <Route exact path="/" component={SearchBooks} />
-            <Route exact path="/saved" component={SavedBooks} />
-            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
-          </Routes>
-        </>
-      </Router>
+      <Navbar /> 
+      <Outlet /> 
     </ApolloProvider>
   );
 }
