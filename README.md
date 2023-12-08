@@ -32,4 +32,5 @@ Once all the packages are install locally, you should be able to run the program
 
 # Deployment 
 
-Unfortunately, I wasn't able to get a live to deployment to run via render. I was repeatedly running into the same issue there. 
+Deployment link: https://stark-spire-67422-7ca23f775fed.herokuapp.com/
+
