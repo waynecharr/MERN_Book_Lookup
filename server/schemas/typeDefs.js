@@ -1,21 +1,20 @@
 const typeDefs = `
 type Book {
-    _id: ID
-    authors: String
+    bookId: ID
+    authors: [String]
     description: String
-    bookId: String
+    title: String
     image: String
     link: String
-    title: String
   }
 
   type User {
-    _id: ID
+    _id: ID!
     username: String
     email: String
     password: String
-    savedBooks: [Book]
     bookCount: Int
+    savedBooks: [Book]
   }
 
   type Auth {
@@ -28,10 +27,10 @@ type Book {
   }
 
   input BookInput {
+    bookId: ID
     authors: [String]
     description: String
     title: String
-    bookId: ID
     image: String
     link: String
   }

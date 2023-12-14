@@ -7,7 +7,7 @@ import {
   Col
 } from 'react-bootstrap';
 
-// import { getMe, deleteBook } from '../utils/API'; -- no longer necessary
+
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
